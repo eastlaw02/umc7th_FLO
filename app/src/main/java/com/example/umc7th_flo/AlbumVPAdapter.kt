@@ -9,8 +9,8 @@ class AlbumVPAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun createFragment(position: Int): Fragment {
         return when (position){
             0 -> SongFragment()
-            1 -> SongFragment()
-            else -> SongFragment()
+            1 -> DetailFragment()
+            else -> VideoFragment()
         }
     }
 }

@@ -20,9 +20,10 @@ class MainActivity : AppCompatActivity() {
         initBottomNavigation()
 
         binding.mainPlayerCl.setOnClickListener {
-            val spf = getSharedPreferences("song", MODE_PRIVATE)
-            binding.mainMiniplayerTitleTv.text = spf.getString("title","")
-            binding.mainMiniplayerSingerTv.text = spf.getString("singer","")
+            val editor = getSharedPreferences("song", MODE_PRIVATE).edit()
+            editor.putString("title",binding.mainMiniplayerTitleTv.text.toString())
+            editor.putString("singer",binding.mainMiniplayerSingerTv.text.toString())
+            editor.apply()
 
             val intent = Intent(this,SongActivity::class.java)
             startActivity(intent)
